@@ -23,7 +23,7 @@ export class MailController {
     @Payload() payload: any,
     @Ctx() context: RmqContext,
   ) {
-    const dataMessage: DataMessage = JSON.parse(payload.data.notification);
+    const dataMessage: DataMessage = JSON.parse(payload.message);
 
     await this.mailService.performMailSending(
       dataMessage,
@@ -38,7 +38,7 @@ export class MailController {
     @Payload() payload: any,
     @Ctx() context: RmqContext,
   ) {
-    const dataMessage: DataMessage = JSON.parse(payload.data.notification);
+    const dataMessage: DataMessage = JSON.parse(payload.message);
 
     await this.mailService.performMailSending(
       dataMessage,
